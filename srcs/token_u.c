@@ -33,7 +33,7 @@ int	handle_s_quotes(char *input, int i, t_token *token, t_lists **head)
 	if (!token->value)
 	{
 		printf("Memory allocation failed for token.value\n");
-		return (i);
+		return (i);//return -1 in errors
 	}
 	add_node(head, token->value);
 	return (i);
@@ -62,11 +62,11 @@ int	is_parameter(char *input, int i, t_token *token, t_lists **head)
 	if (input[i + 1] && input[i] == input[i + 1] && input[i + 1] != '|')
 	{
 		i++;
-		if (input[i + 1] && input[i] == input[i + 1])
-		{
-			printf("syntax error near unexpected token '%c'\n", input[i]);
-			exit(1); // add exit minishell function
-		}
+		// if (input[i + 1] && input[i] == input[i + 1])
+		// {
+		// 	printf("syntax error near unexpected token '%c'\n", input[i]);
+		// 	return -1; // add exit minishell function
+		// }
 	}
 	token->end = i;
 	token->value = ft_substr(input, token->start, (token->end - token->start
@@ -74,7 +74,7 @@ int	is_parameter(char *input, int i, t_token *token, t_lists **head)
 	if (!token->value)
 	{
 		printf("Memory allocation failed for token.value\n");
-		return (i);
+		return (-1);
 	}
 	add_node(head, token->value);
 	return (i);

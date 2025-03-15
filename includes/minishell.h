@@ -38,7 +38,7 @@ typedef struct s_token{
 
 void print_list(t_lists *head);
 t_lists *find_last_node(t_lists *head);
-void add_node(t_lists **head, char *input);
+int add_node(t_lists **head, char *input);
 void init_token(t_token *token);
 int handle_d_quotes(char *input, int i, t_token *token, t_lists **head);
 int handle_s_quotes(char *input, int i, t_token *token, t_lists **head);

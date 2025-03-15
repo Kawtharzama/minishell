@@ -46,12 +46,13 @@ void	split_command(char *input)
 		{
 			i = handle_s_quotes(input, i, &token, &head);
 		}
-		else if (is_space(input[i]))
-		{
-			printf("space\n");
-			i++;
-			continue ;
-		}
+		else if (is_space(input[i])) // remove th function
+			;
+		// {
+		// 	printf("space\n");
+		// 	i++;
+		// 	continue ;
+		// }
 		else if (parameter_char(input[i]))
 		{
 			printf("para\n");
@@ -62,6 +63,8 @@ void	split_command(char *input)
 			printf("str\n");
 			i = str(input, i, &token, &head);
 		}
+		if (i == -1)
+			; // error handler
 		i++;
 	}
 	print_list(head);

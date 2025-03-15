@@ -26,21 +26,21 @@ t_lists	*find_last_node(t_lists *head)
 	return (head);
 }
 
-void	add_node(t_lists **head, char *input)
+int	add_node(t_lists **head, char *input)
 {
 	t_lists	*node;
 	t_lists	*last_node;
 
 	if (!input)
-		return ;
+		return -1;
 	node = malloc(sizeof(t_lists)); // free
 	if (!node)
-		return ;
+		return -1;
 	node->value = ft_strdup(input); // free ?? //is is neccessary??
 	if (!node->value)
 	{
 		free(node);
-		return ;
+		return -1;
 	}
 	node->value = input;
 	node->next = NULL;
@@ -52,6 +52,7 @@ void	add_node(t_lists **head, char *input)
 		last_node->next = node;
 		node->prev = last_node;
 	}
+	return 0;
 }
 
 void	init_token(t_token *token)

@@ -1,4 +1,6 @@
-SRCS = srcs/minishell.c #src.c
+SRCS = srcs/minishell.c\
+	srcs/token.c\
+	srcs/token_u.c #src.c
 
 OBJS = $(SRCS:srcs/%.c=objs/%.o) #ending with .c replace it with .o just as string 
 

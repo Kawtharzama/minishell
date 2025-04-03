@@ -9,7 +9,7 @@ void	print_list(t_lists *head)
 	i = 1;
 	while (current != NULL)
 	{
-		printf("Token[%d] %s,\n", i, current->value);
+		printf("Token[%d] %s, type: %d\n", i, current->value, current->type);
 		current = current->next;
 		i++;
 	}
@@ -33,16 +33,16 @@ int	add_node(t_lists **head, char *input)
 
 	if (!input)
 		return -1;
-	node = malloc(sizeof(t_lists)); // free
+	node = malloc(sizeof(t_lists)); // free t_lists function
 	if (!node)
 		return -1;
-	node->value = ft_strdup(input); // free ?? //is is neccessary??
+	node->value = input; 
 	if (!node->value)
 	{
-		free(node);
+		free(node); //shall we add it in the free function?
 		return -1;
 	}
-	node->value = input;
+	
 	node->next = NULL;
 	if (*head == NULL)
 		*head = node;

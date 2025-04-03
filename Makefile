@@ -1,6 +1,11 @@
 SRCS = srcs/minishell.c\
 	srcs/token.c\
-	srcs/token_u.c #src.c
+	srcs/toknization.c\
+	srcs/token_u.c \
+	srcs/Parsing.c\
+	srcs/free.c\
+	srcs/init_strcut.c
+	#src.c
 
 OBJS = $(SRCS:srcs/%.c=objs/%.o) #ending with .c replace it with .o just as string 
 
